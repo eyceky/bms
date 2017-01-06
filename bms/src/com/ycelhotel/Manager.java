@@ -14,18 +14,30 @@ public class Manager {
 	 */
 	public void flow(){
 		Scanner sc=new Scanner(System.in);
-		int select=sc.nextInt();
-		displayMenu();
+		System.out.println("进入flow方法");
 		while(true){
+			displayMenu();
+			int select=sc.nextInt();
 			switch(select){
 			case 1:
 				displayBook();
-				break;
+				continue;
 			case 2:
-				
-				default:
+				addBook();
+				continue;
+			case 3:
+				deleteBook();
+				continue;
+			case 4:
+				updateBook();
+				continue;
+			case 5:
+				sc.close();
+				System.exit(0);
+			default:
+				System.out.println("输入错误，请重新输入");
+				continue;
 			}
-			sc.close();
 		}
 	}
 	
@@ -43,6 +55,7 @@ public class Manager {
 		for(int i=0;i<menus.length;i++){
 			System.out.println(menus[i]);
 		}
+		System.out.println();
 	}
 	
 	/**
@@ -68,7 +81,7 @@ public class Manager {
 	public void addBook(){
 		int count=0;
 		for(int i=0;i<books.length;i++){
-			if(books[i]==null){
+			if(books[i]!=null){
 				count++;
 			}
 		}
@@ -82,7 +95,26 @@ public class Manager {
 			book.name=sc.next();
 			System.out.println("请输入作者：");
 			book.author=sc.next();
+			System.out.println("请输入出版社：");
+			book.publisher=sc.next();
+			System.out.println("请输入价格：");
+			book.price=sc.nextDouble();
 			sc.close();
 		}
 	}
+	
+	/**
+	 * 删除图书
+	 */
+	public void deleteBook(){
+		
+	}
+	
+	/**
+	 * 修改图书
+	 */
+	public void updateBook(){
+		
+	}
+	
 }
