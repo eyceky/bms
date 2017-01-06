@@ -7,9 +7,11 @@ import java.util.Scanner;
  *
  */
 public class Manager {
+	private int inventory=0;
 	Scanner sc=new Scanner(System.in);
 	//用于存放Book类的数组
-	Book[] books=new Book[10]; 
+	Book[] books=new Book[10];
+	
 	/**
 	 *流程控制
 	 */
@@ -61,15 +63,16 @@ public class Manager {
 	 */
 	public void displayBook(){
 		for(int i=0;i<books.length;i++){
-			if(books[i]==null){
+			if(books[i]!=null){
+				System.out.print("书名："+books[i].getName()+"  ");
+				System.out.print("作者："+books[i].getAuthor()+"  ");
+				System.out.print("出版社："+books[i].getPublisher()+"  ");
+				System.out.print("价格："+books[i].getPrice());
+				System.out.println();
+			}else{
 				System.out.println("系统中还没有图书");
 				break;
 			}
-			System.out.print("书名："+books[i].name+"  ");
-			System.out.print("作者："+books[i].author+"  ");
-			System.out.print("出版社："+books[i].publisher+"  ");
-			System.out.print("价格："+books[i].price);
-			System.out.println();
 		}
 	}
 	
@@ -93,13 +96,13 @@ public class Manager {
 			System.out.println("还可以存放"+empty+"本书");
 			Book book=new Book();
 			System.out.println("请输入书名：");
-			book.name=sc.next();
+			book.setName(sc.next());
 			System.out.println("请输入作者：");
-			book.author=sc.next();
+			book.setAuthor(sc.next());
 			System.out.println("请输入出版社：");
-			book.publisher=sc.next();
+			book.setPublisher(sc.next());
 			System.out.println("请输入价格：");
-			book.price=sc.nextDouble();
+			book.setPrice(sc.nextDouble());
 			for(int index=0;index<books.length;index++){
 				if(books[index]==null){
 					books[index]=book;
@@ -116,7 +119,7 @@ public class Manager {
 		System.out.println("请输入需要删除图书的书名：");
 		String bookName=sc.next();
 		for(int i=0;i<books.length;i++){
-			if(bookName.equals(books[i].name)){
+			if(bookName.equals(books[i].getName())){
 				books[i]=null;
 			}
 		}
@@ -129,17 +132,16 @@ public class Manager {
 		System.out.println("请输入需要修改图书的书名：");
 		String bookName=sc.next();
 		for(int i=0;i<books.length;i++){
-			if(bookName.equals(books[i].name)){
+			if(bookName.equals(books[i].getName())){
 				System.out.println("请输入书名：");
-				books[i].name=sc.next();
+				books[i].setName(sc.next());
 				System.out.println("请输入作者：");
-				books[i].author=sc.next();
+				books[i].setAuthor(sc.next());
 				System.out.println("请输入出版社：");
-				books[i].publisher=sc.next();
+				books[i].setPublisher(sc.next());
 				System.out.println("请输入价格：");
-				books[i].price=sc.nextDouble();
+				books[i].setPrice(sc.nextDouble());
 			}
 		}
 	}
-	
 }
