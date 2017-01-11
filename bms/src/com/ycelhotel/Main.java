@@ -2,7 +2,7 @@ package com.ycelhotel;
 
 public class Main {
 	public static void main(String[] args){
-		Manager manager=new Manager();
+		Manager manager=Manager.getInstance();
 		manager.flow();
 	}
 }

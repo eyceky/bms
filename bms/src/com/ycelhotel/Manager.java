@@ -8,15 +8,31 @@ import java.util.Scanner;
  */
 public class Manager {
 	
-	private int inventory=0;
-	Scanner sc=new Scanner(System.in);
-	//用于存放Book类的数组
-	Book[] books=new Book[10];
+	private int inventory=0;			//图书的库存
+	Scanner sc=new Scanner(System.in);			//用于扫描控制台录入
+	Book[] books=new Book[10];			//用于存放Book类的数组
+	private static Manager manager=new Manager();			//在本类中维护一个实例
 	
+	/**
+	 * 私有构造方法
+	 */
+	private Manager(){
+		
+	}
+	
+	/**
+	 * 构造代码块
+	 */
 	{
 		initBooks();
 	}
 	
+	/**
+	 * 获取本类的一个实例
+	 */
+	public static Manager getInstance(){
+		return manager;
+	}
 	/**
 	 * 初始化书库
 	 */
