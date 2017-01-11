@@ -6,14 +6,21 @@ package com.ycelhotel;
  *
  */
 public class Book {
-	//书名
-	private String name;
-	//作者
-	private String author;
-	//出版社
-	private String publisher;
-	//价格
-	private double price;
+	
+	private String name;			//书名
+	private String author;			//作者
+	private String publisher;		//出版社
+	private double price;			//价格
+	
+	Book(){
+		
+	}
+	Book(String name,String author,String publisher,double price){
+		this.name=name;
+		this.author=author;
+		this.publisher=publisher;
+		this.price=price;
+	}
 	
 	public void setName(String name){
 		this.name=name;
